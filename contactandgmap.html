@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Pharmacy – Contact & Map</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f6f7f9;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      background: #f6f7f9;
+      padding: 80px 5%;
+    }
+
+    /* LEFT + RIGHT LAYOUT */
+    .contact-wrapper {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    /* LEFT CONTENT */
+    .contact-left {
+      flex: 1;
+    }
+    .small-title {
+      color: #888;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .contact-left h2 {
+      font-size: 38px;
+      margin: 15px 0;
+      line-height: 1.2;
+    }
+    .contact-left span {
+      color: #007bff;
+    }
+    .contact-left p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .contact-info p {
+      margin-top: 15px;
+      color: #333;
+    }
+    .contact-info i {
+      color: #007bff;
+      margin-right: 8px;
+    }
+
+    /* RIGHT FORM – CARD STYLE */
+    .contact-form-box {
+      flex: 1;
+      background: #fff;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+    }
+    .contact-form-box input,
+    .contact-form-box select,
+    .contact-form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    .contact-form-box textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .contact-form-box button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-form-box button:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ===== MAP FRAME – NO CARD BG, CIRCULAR ROUTE ===== */
+    .map-frame {
+      position: relative;
+      width: 100%;
+      height: 760px;
+      margin: auto;
+      background: transparent;
+    }
+
+    /* NETWORK (absolute container) */
+    .network {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* MAP NODES */
+    .map-node {
+      position: absolute;
+      width: 260px;
+      height: 170px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      transition: 1s ease-in-out;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border: 3px solid transparent;
+    }
+    .map-node iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+
+    /* ACTIVE NODE (highlighted) */
+    .map-node.active {
+      transform: scale(1.15);
+      border-color: #00bcd4;
+      box-shadow: 0 0 30px #00bcd4;
+      z-index: 10;
+    }
+
+    /* LABEL (branch name) */
+    .label {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00bcd4;
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 5px 15px rgba(0,188,212,0.3);
+    }
+
+    /* POSITIONS – ROTATING CYCLE */
+    .pos-top { top: 120px; left: 470px; }
+    .pos-right { top: 320px; left: 780px; }
+    .pos-bottom { top: 540px; left: 470px; }
+    .pos-left { top: 320px; left: 160px; }
+
+    /* SVG ROUTE */
+    svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .route {
+      fill: none;
+      stroke: #00bcd4;
+      stroke-width: 5;
+      stroke-dasharray: 14 12;
+      animation: flow 3s linear infinite;
+    }
+    @keyframes flow {
+      to { stroke-dashoffset: -200; }
+    }
+
+    /* ===== FULLSCREEN MAP OVERLAY ===== */
+    .map-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .map-overlay iframe {
+      width: 90%;
+      height: 90%;
+      border-radius: 25px;
+      box-shadow: 0 0 50px rgba(0,188,212,0.5);
+      border: none;
+    }
+    .close-map {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      font-size: 48px;
+      color: #00bcd4;
+      cursor: pointer;
+      font-weight: 300;
+      transition: 0.3s;
+    }
+    .close-map:hover {
+      color: #007bff;
+      transform: scale(1.2);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .contact-wrapper {
+        flex-direction: column;
+      }
+      .contact-left, .contact-form-box {
+        width: 100%;
+      }
+      .map-frame {
+        height: 600px;
+      }
+      .pos-top { top: 80px; left: 50%; transform: translateX(-50%); width: 280px; }
+      .pos-right { top: 240px; left: auto; right: 5%; width: 250px; }
+      .pos-bottom { bottom: 80px; left: 50%; transform: translateX(-50%); top: auto; width: 280px; }
+      .pos-left { top: 240px; left: 5%; width: 250px; }
+      svg { display: none; }
+    }
+    @media (max-width: 768px) {
+      .map-frame { height: 500px; }
+      .map-node { width: 220px; height: 150px; }
+      .pos-top, .pos-bottom { width: 240px; }
+      .pos-right, .pos-left { width: 200px; }
+    }
+    @media (max-width: 576px) {
+      .contact-section { padding: 50px 20px; }
+      .contact-left h2 { font-size: 28px; }
+      .map-frame { height: auto; }
+      .network { display: flex; flex-direction: column; gap: 30px; align-items: center; }
+      .map-node { position: static; width: 100%; max-width: 320px; margin: 0 auto; }
+      .label { top: -30px; }
+      svg { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== CONTACT SECTION (LEFT + FORM + MAP) ========== -->
+  <section class="contact-section" id="contact">
+    
+    <!-- LEFT CONTENT + FORM (SIDE BY SIDE) -->
+    <div class="contact-wrapper">
+      
+      <!-- LEFT: TEXT & BASIC CONTACT -->
+      <div class="contact-left">
+        <span class="small-title">WE ARE HERE TO HELP YOU</span>
+        <h2>Discuss Your<br><span>Chemical Solution Needs</span></h2>
+        <p>Are you looking for top‑quality chemical solutions tailored to your needs? Reach out to us.</p>
+
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> Info@sunpharmacy.com</p>
+          <p><i class="fas fa-phone-alt"></i> +61 3 8376 6284</p>
+        </div>
+      </div>
+      
+      <!-- RIGHT: CONTACT FORM (WITH SELECT DROPDOWN) -->
+      <div class="contact-form-box">
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <select required>
+            <option value="" disabled selected>Select Industry</option>
+            <option>Pharmaceutical</option>
+            <option>Chemical Manufacturing</option>
+            <option>Healthcare</option>
+            <option>Research & Development</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Get a Solution <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========== ANIMATED MAP – CIRCULAR ROUTE WITH 4 BRANCHES ========== -->
+    <div class="map-frame">
+      <!-- SVG ROUTE PATH -->
+      <svg viewBox="0 0 1200 760">
+        <path class="route"
+          d="M600 200
+             C850 260 900 350 850 440
+             C760 520 640 600 600 600
+             C560 600 440 520 350 440
+             C300 350 350 260 600 200 Z"/>
+      </svg>
+
+      <div class="network">
+        <!-- HEAD OFFICE -->
+        <div class="map-node pos-top active" data-map="https://www.google.com/maps?q=Sun+Pharmacy&output=embed">
+          <span class="label"><i class="fas fa-store" style="margin-right: 6px;"></i> Head Office</span>
+          <iframe src="https://www.google.com/maps?q=Sun+Pharmacy&output=embed"></iframe>
+        </div>
+        <!-- CHENNAI BRANCH -->
+        <div class="map-node pos-right" data-map="https://www.google.com/maps?q=Chennai&output=embed">
+          <span class="label"><i class="fas fa-map-pin" style="margin-right: 6px;"></i> Chennai</span>
+          <iframe src="https://www.google.com/maps?q=Chennai&output=embed"></iframe>
+        </div>
+        <!-- BANGALORE BRANCH -->
+        <div class="map-node pos-bottom" data-map="https://www.google.com/maps?q=Bangalore&output=embed">
+          <span class="label"><i class="fas fa-map-pin" style="margin-right: 6px;"></i> Bangalore</span>
+          <iframe src="https://www.google.com/maps?q=Bangalore&output=embed"></iframe>
+        </div>
+        <!-- PONDICHERRY BRANCH -->
+        <div class="map-node pos-left" data-map="https://www.google.com/maps?q=Pondicherry&output=embed">
+          <span class="label"><i class="fas fa-map-pin" style="margin-right: 6px;"></i> Pondicherry</span>
+          <iframe src="https://www.google.com/maps?q=Pondicherry&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULLSCREEN MAP OVERLAY (hidden by default) -->
+    <div class="map-overlay" id="mapOverlay">
+      <span class="close-map" onclick="closeMap()">×</span>
+      <iframe id="fullscreenMap" allowfullscreen></iframe>
+    </div>
+
+  </section>
+
+  <!-- ========== JAVASCRIPT FOR MAP ROTATION & FULLSCREEN ========== -->
+  <script>
+    (function() {
+      "use strict";
+
+      // ----- ROTATING MAP NODES (AUTO SLIDE EVERY 3.5 SEC) -----
+      const positions = ["pos-top", "pos-right", "pos-bottom", "pos-left"];
+      const nodes = document.querySelectorAll(".map-node");
+
+      function rotateNodes() {
+        nodes.forEach(node => {
+          // find current position class
+          let current = positions.find(p => node.classList.contains(p));
+          let next = positions[(positions.indexOf(current) + 1) % positions.length];
+          node.classList.remove(...positions, "active");
+          node.classList.add(next);
+          if (next === "pos-top") node.classList.add("active");
+        });
+      }
+
+      // start rotation interval
+      let rotationInterval = setInterval(rotateNodes, 3500);
+
+      // ----- FULLSCREEN MAP ON NODE CLICK -----
+      const fullscreenMap = document.getElementById("fullscreenMap");
+      const mapOverlay = document.getElementById("mapOverlay");
+
+      nodes.forEach(node => {
+        node.addEventListener("click", function(e) {
+          // prevent iframe inside from capturing click
+          e.stopPropagation();
+          const mapSrc = this.dataset.map;
+          if (mapSrc) {
+            fullscreenMap.src = mapSrc;
+            mapOverlay.style.display = "flex";
+          }
+        });
+      });
+
+      // ----- CLOSE FULLSCREEN -----
+      window.closeMap = function() {
+        mapOverlay.style.display = "none";
+        fullscreenMap.src = "";
+      };
+
+      // close overlay when clicking outside the iframe (on background)
+      mapOverlay.addEventListener("click", function(e) {
+        if (e.target === mapOverlay) {
+          closeMap();
+        }
+      });
+
+      // ----- PAUSE ROTATION ON HOVER, RESUME ON LEAVE -----
+      const mapFrame = document.querySelector(".map-frame");
+      if (mapFrame) {
+        mapFrame.addEventListener("mouseenter", function() {
+          clearInterval(rotationInterval);
+        });
+        mapFrame.addEventListener("mouseleave", function() {
+          rotationInterval = setInterval(rotateNodes, 3500);
+        });
+      }
+
+      // ----- KEYBOARD: ESC TO CLOSE FULLSCREEN -----
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && mapOverlay.style.display === "flex") {
+          closeMap();
+        }
+      });
+
+      // ----- TOUCH SWIPE (optional for mobile) -----
+      let touchStartX = 0;
+      if (mapFrame) {
+        mapFrame.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          clearInterval(rotationInterval);
+        });
+        mapFrame.addEventListener("touchend", (e) => {
+          const touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            // swipe left / right – force manual rotation once
+            if (diff > 0) rotateNodes(); else rotateNodes(); // both directions rotate forward
+          }
+          rotationInterval = setInterval(rotateNodes, 3500);
+        });
+      }
+    })();
+  </script>
+
+  <!-- ===== OPTIONAL: FORM SUBMIT PREVENTION FOR DEMO ===== -->
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your message has been sent. We will get back to you shortly.');
+      // Here you can add actual AJAX or WhatsApp integration
+    });
+  </script>
+
+</body>
+</html>

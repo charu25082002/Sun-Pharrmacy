@@ -1389,159 +1389,131 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     </style>
 
-    <div class="main-content">
-        <h1>Sun Pharmacy</h1>
-        <p>Your trusted partner for health and wellness. This demo showcases our 4-column footer with upward floating waves and social media brand colors.</p>
-        <div style="margin-top: 30px; padding: 20px; background-color: #e3f2fd; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto; border-left: 4px solid #0d47a1;">
-            <h3 style="color: #0d47a1; margin-bottom: 10px;">4-Column Footer Design</h3>
-            <p style="color: #555; font-size: 1rem;">This footer has 4 columns with upward floating waves and social media icons that show their brand colors on hover.</p>
-        </div>
-    </div>
+ <div class="padding-rl float-left w-100">
+    <section class="float-left w-100 footer-con position-relative br-30 padding-rl-responsive">
+        <div class="main-container position-relative">
+            <div class="middle_portion">
+                <div class="row align-items-center">
+                    <!-- Column 1: Logo & Newsletter -->
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4 mb-lg-0">
+                        <div class="logo-content">
+                            <a class="navbar-brand" href="index.html">
+                            <figure class="mb-0">
+                                <img src="assets/images/img/logo.jpeg" alt="logo-icon">
+                            </figure>
+                            <style>
+                                figure {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
 
-    <footer class="sun-pharmacy-footer">
-        <!-- Floating Waves -->
-        <div class="waves-container">
-            <div class="wave wave-1"></div>
-            <div class="wave wave-2"></div>
-            <div class="wave wave-3"></div>
-        </div>
-        
-        <!-- Floating background elements -->
-        <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 5%;"></div>
-        <div class="floating-element" style="width: 120px; height: 120px; top: 40%; right: 8%; animation-delay: 5s;"></div>
-        <div class="floating-element" style="width: 60px; height: 60px; bottom: 15%; left: 12%; animation-delay: 8s;"></div>
-        
-        <!-- Floating Pills -->
-        <div class="floating-pill" style="left: 10%; animation-delay: 0s;">💊</div>
-        <div class="floating-pill" style="left: 30%; animation-delay: 5s;">💊</div>
-        <div class="floating-pill" style="left: 50%; animation-delay: 10s;">💊</div>
-        <div class="floating-pill" style="left: 70%; animation-delay: 15s;">💊</div>
-        <div class="floating-pill" style="left: 90%; animation-delay: 3s;">💊</div>
-        
-        <div class="footer-container">
-            <div class="footer-columns">
-                <!-- Column 1: About & Contact -->
-                <div class="footer-column">
-                    <h3>About Sun Pharmacy</h3>
-                    <p>Your trusted healthcare partner for over 25 years. We provide quality medications, health advice, and wellness products.</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Health Street, Wellness City, WC 10001</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (800) 123-4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@sunpharmacy.com</span>
+figure img {
+    max-width: 140px;   /* decrease logo size */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+                            </style>
+                        </a>
+                            <!-- <h4 class="text-white mb-3">Subscribe to Our Newsletter:</h4> -->
+                            <!-- <form action="javascript:;">
+                                <div class="form-group position-relative mb-0">
+                                    <input type="text" class="form_style" placeholder="Enter Email Address"
+                                        name="email">
+                                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </form> -->
                         </div>
                     </div>
-                    
-                    <div class="pharmacy-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Licensed & Certified Pharmacy</span>
-                    </div>
-                </div>
-                
-                <!-- Column 2: Quick Links -->
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-prescription"></i> Prescription Refills</a></li>
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-syringe"></i> Immunizations</a></li>
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-user-md"></i> Pharmacy Services</a></li>
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-pills"></i> Medication Management</a></li>
-                        <li><a href="#"><span class="pill-icon"></span><i class="fas fa-store"></i> Find a Location</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 3: Pharmacy Services -->
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <p>We offer a wide range of pharmacy services to meet all your healthcare needs.</p>
-                    
-                    <div class="services-list">
-                        <div class="service-item">
-                            <i class="fas fa-capsules"></i>
-                            <span>Prescription Filling</span>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-stethoscope"></i>
-                            <span>Health Screenings</span>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-heart"></i>
-                            <span>Wellness Programs</span>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-ambulance"></i>
-                            <span>Emergency Services</span>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-comments"></i>
-                            <span>Health Consultations</span>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-home"></i>
-                            <span>Home Delivery</span>
+
+                    <!-- Column 2: Navigation Links -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
+                        <div class="links">
+                            <h4 class="heading">Navigation</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="index.html"
+                                        class="text-decoration-none">Home</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="about.html"
+                                        class="text-decoration-none">About</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="shop.html"
+                                        class="text-decoration-none">Services</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="team.html"
+                                        class="text-decoration-none">Products</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="blog.html"
+                                        class="text-decoration-none">Branches</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="contact.html"
+                                        class="text-decoration-none">Contact</a></li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <h3 style="margin-top: 25px;">Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon pinterest" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Column 4: Newsletter & Hours -->
-                <div class="footer-column">
-                    <h3>Stay Informed</h3>
-                    <p>Subscribe to our newsletter for health tips, pharmacy updates, and exclusive offers.</p>
-                    
-                    <div class="newsletter-form">
-                        <div class="newsletter-input">
-                            <input type="email" placeholder="Enter your email">
-                            <button type="submit">Subscribe</button>
+
+                    <!-- Column 3: Contact Info -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
+                        <div class="contact">
+                            <h4 class="heading">Contact Info</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li class="text">
+                                    <i class="fa-solid fa-phone-flip"></i>
+                                    <a href="tel:+61383766284" class="text-decoration-none">+61 3 8376 6284</a>
+                                </li>
+                                <li class="text">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <a href="mailto:Info@pharmez.com"
+                                        class="text-decoration-none">Info@pharmez.com</a>
+                                </li>
+                                <li class="text">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <a class="address mb-0" href="https://maps.app.goo.gl/H8B9kcfVpLPDYcH89">21 King
+                                        Street Melbourne,<br>
+                                        3000, Australia</a>
+                                </li>
+                                <li class="text">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <p class="address mb-0">Mon - Sat: 9:00 am to 6:00 pm</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <h3 style="margin-top: 25px;">Pharmacy Hours</h3>
-                    <ul class="footer-links">
-                        <li><i class="far fa-clock"></i> Mon-Fri: 8:00 AM - 9:00 PM</li>
-                        <li><i class="far fa-clock"></i> Saturday: 9:00 AM - 6:00 PM</li>
-                        <li><i class="far fa-clock"></i> Sunday: 10:00 AM - 4:00 PM</li>
-                        <li><i class="fas fa-plus-circle"></i> 24/7 Emergency Service</li>
-                    </ul>
-                    
-                    <div style="margin-top: 20px; padding: 12px; background-color: rgba(255, 255, 255, 0.7); border-radius: 8px; border-left: 4px solid #4caf50;">
-                        <p style="color: #555; font-size: 0.9rem; margin-bottom: 0;"><i class="fas fa-info-circle" style="color: #4caf50; margin-right: 5px;"></i> Free delivery on orders over $50</p>
+
+                    <!-- Column 4: Map -->
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="map-section">
+                            <div class="map-box mb-4">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62458.31550131751!2d79.72379207611084!3d11.929794901086007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361005a64b0cf%3A0xc219119e99ee6b85!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770635087768!5m2!1sen!2sin"
+                                    allowfullscreen
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    style="height: 250px; width: 100%; border-radius: 15px;">
+                                </iframe>
+                            </div>
+                            <div class="social-icons-container d-flex justify-content-center">
+                                <ul class="list-unstyled mb-0 social-icons d-flex">
+                                    <li class="me-2"><a href="https://www.facebook.com/" class="text-decoration-none"><i
+                                                class="fa-brands fa-facebook-f social-networks"></i></a></li>
+                                    <li class="me-2"><a href="https://instagram.com/" class="text-decoration-none"><i
+                                                class="fa-brands fa-instagram social-networks"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li><a href="https://www.linkedin.com/" class="text-decoration-none"><i
+                                                class="fa-brands fa-linkedin social-networks"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2023 Sun Pharmacy. All rights reserved. | FDA Approved Medications | HIPAA Compliant</p>
+            <div class="copyright d-flex flex-column flex-md-row justify-content-between align-items-center padding-rl-responsive">
+                <p class="mb-0 mb-md-0 text-center text-md-start">Copyright © 2025 pharmez. All Rights Reserved.</p>
+                <div class="text-center text-md-end mt-2 mt-md-0">
+                    <img src="assets/images/payment-cards.png" alt="cards" class="img-fluid">
                 </div>
-                <ul class="footer-bottom-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">HIPAA Compliance</a></li>
-                    <li><a href="#">Site Map</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
             </div>
         </div>
-    </footer>
+    </section>
+</div>
   <script>
         // Newsletter subscription animation
         document.querySelector('.newsletter-input button').addEventListener('click', function() {

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Sun Pharmacy — Cleaned & Proper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap + FontAwesome -->
+    <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Core Styles -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+
+    <!-- consolidated custom styles – clean & minimal extra -->
+    <style>
+        /* ----- header contact / logo ----- */
+        .navbar-brand figure img { max-width: 150px; height: auto; }
+        .header-contact { margin-left: 20px; }
+        .navbar-nav .nav-item { margin-right: 20px; }
+        .navbar-nav .nav-link.active { color: #007bff !important; font-weight: 700; }
+
+        /* ----- product tabs INLINE (row) ----- */
+        .product-tabs-inline {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0 40px;
+            list-style: none;
+            padding: 0;
+        }
+        .product-tab-link {
+            padding: 12px 28px;
+            background: #f8f9fa;
+            border-radius: 30px;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .product-tab-link:hover,
+        .product-tab-link.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .product-tab-pane { display: none; }
+        .product-tab-pane.active { display: block; }
+
+        /* ----- video reveal animation ----- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s ease;
+        }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        .pharmacy-video { width: 100%; max-width: 1100px; border-radius: 22px; box-shadow: 0 25px 50px rgba(234,88,12,0.25); }
+
+        /* ----- footer video bg ----- */
+        .footer-con {
+            background: #1a1a1a;
+            padding: 50px 0 30px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-video-background {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+        }
+        .footer-bg-video {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            min-width: 100%; min-height: 100%; object-fit: cover; filter: brightness(0.4) contrast(1.2);
+        }
+        .video-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0,123,255,0.85) 0%, rgba(0,86,179,0.8) 100%);
+            mix-blend-mode: multiply;
+        }
+        .footer-con .main-container { position: relative; z-index: 1; }
+        .footer-column h4 { color: #fff; margin-bottom: 20px; font-size: 20px; font-weight: 600; }
+        .footer-column p, .footer-column ul li a { color: rgba(255,255,255,0.8); }
+        .footer-column ul li a:hover { color: #fff; }
+        .footer-column ul li i { margin-right: 10px; color: #007bff; }
+
+        /* ----- contact form clean ----- */
+        .contact-section { padding: 80px 20px; background: #f8fafc; }
+        .contact-container { max-width: 1200px; margin: 0 auto; }
+        .contact-title { font-size: 2.5rem; text-align: center; color: #1e293b; font-weight: 700; }
+        .contact-subtitle { text-align: center; color: #64748b; margin-bottom: 3rem; }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width:768px){ .contact-content { grid-template-columns: 1fr; } }
+        .contact-form-container { background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 30px; }
+        .form-group { margin-bottom: 25px; }
+        .form-control { width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 10px; transition: 0.3s; }
+        .form-control:focus { border-color: #007bff; box-shadow: 0 0 0 3px rgba(0,123,255,0.1); outline: none; }
+        .phone-input-group { display: flex; gap: 15px; }
+        .country-code { flex: 0 0 100px; }
+        .btn-preview, .btn-whatsapp {
+            width: 100%; padding: 15px; border: none; border-radius: 10px; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: 0.3s; margin-top: 15px; text-decoration: none;
+        }
+        .btn-preview { background: #007bff; color: white; }
+        .btn-preview:hover { background: #0056b3; transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); color: white; }
+        .form-message { padding: 15px; border-radius: 10px; margin: 20px 0; display: none; }
+        .form-message.success { background: #d1fae5; color: #065f46; display: block; }
+        .form-message.error { background: #fee2e2; color: #991b1b; display: block; }
+
+        /* ----- MAP NODES (circular smart map) ----- */
+        .map-frame {
+            width: 1200px; max-width: 100%; margin: 0 auto;
+            backdrop-filter: blur(18px); padding: 40px; position: relative;
+        }
+        .title { text-align: center; color: #062b3d; font-size: 30px; font-weight: 700; margin-bottom: 20px; }
+        .network { position: relative; width: 100%; height: 600px; }
+        .map-node {
+            position: absolute; width: 260px; height: 170px; border-radius: 22px; overflow: hidden;
+            transition: 1.2s ease-in-out; z-index: 3; cursor: pointer;
+        }
+        .map-node iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
+        .map-node.active {
+            box-shadow: 0 0 25px #00bcd4, 0 0 50px #00bcd4;
+            transform: scale(1.15); z-index: 10;
+        }
+        .label {
+            position: absolute; top: -36px; left: 50%; transform: translateX(-50%);
+            background: #00bcd4; color: #003847; padding: 6px 14px; border-radius: 20px;
+            font-weight: 600; display: flex; gap: 6px; align-items: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .shop-img {
+            position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1586015555751-63bb77f4322a') center/cover;
+            opacity: 0; transition: 0.8s;
+        }
+        .map-node.active .shop-img { opacity: 0.25; }
+        .pos-top { top: 80px; left: 470px; }
+        .pos-right { top: 280px; left: 780px; }
+        .pos-bottom { top: 480px; left: 470px; }
+        .pos-left { top: 280px; left: 160px; }
+        svg { position: absolute; inset: 0; pointer-events: none; }
+        .route { fill: none; stroke: #00bcd4; stroke-width: 5; stroke-dasharray: 14 12; animation: flow 3s linear infinite; }
+        @keyframes flow { to { stroke-dashoffset: -200; } }
+        .map-overlay {
+            position: fixed; inset: 0; background: white; backdrop-filter: blur(14px);
+            display: none; align-items: center; justify-content: center; z-index: 9999;
+        }
+        .map-overlay iframe { width: 92%; height: 92%; border-radius: 25px; box-shadow: 0 0 40px #00bcd4; border: none; }
+        .close-map { position: absolute; top: 25px; right: 40px; font-size: 42px; color: #00bcd4; cursor: pointer; font-weight: bold; }
+        @media (max-width: 900px) {
+            .map-frame { width: 95%; height: auto; padding: 20px; }
+            svg { display: none; }
+            .network { height: auto; }
+            .map-node { position: static; margin: 40px auto; transform: none !important; width: 100%; height: 200px; }
+        }
+
+        /* ----- misc spacing ----- */
+        .padding-top { padding-top: 80px; }
+        .padding-bottom { padding-bottom: 80px; }
+        .whatsapp-float { transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E !important; }
+    </style>
+</head>
+
+<body>
+    <!-- back to top button -->
+    <a id="button"></a>
+    <!-- search (minimal) -->
+    <div id="search" class="">
+        <span class="close">X</span>
+        <form role="search" id="searchform" method="get">
+            <input value="" name="q" type="search" placeholder="Type to Search">
+        </form>
+    </div>
+
+    <!-- HOME BANNER -->
+    <div class="home_banner_outer float-left w-100 main-box position-relative" id="home">
+        <div class="padding-rl float-left w-100">
+            <header class="w-100 float-left header-con position-relative main-box">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#home">
+                            <figure class="mb-0">
+                                <img src="assets/images/img/logo.jpeg" alt="Sun Pharmacy Logo">
+                            </figure>
+                        </a>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item"><a class="nav-link p-0 active" href="#home">Home</a></li>
+                                <li class="nav-item"><a class="nav-link p-0" href="#about">About</a></li>
+                                <li class="nav-item"><a class="nav-link p-0" href="#services">Services</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown5" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('all', event)">All Products</a>
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('allopathic-medicine', event)">Allopathic Medicine</a>
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('ayurvedic-medicine', event)">Ayurvedic Medicine</a>
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('baby-needs', event)">Baby Needs</a>
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('surgical-items', event)">Surgical Items</a>
+                                        <a class="dropdown-item" href="#products" onclick="activateProductTab('food-items', event)">Food Items</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item"><a class="nav-link p-0" href="#branches">Branches</a></li>
+                            </ul>
+                            <div class="header-contact d-flex align-items-center">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="d-inline-block">
+                                        <a href="#contact" class="contact-btn d-inline-block">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        </div>
+
+        <!-- BANNER CONTENT -->
+        <div class="padding-rl float-left w-100">
+            <section class="float-left w-100 banner-con position-relative d-flex align-items-center justify-content-between br-30">
+                <div class="wrapper1560">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+                            <div class="banner-content-left-con">
+                                <ul class="list-unstyled d-flex">
+                                    <li class="d-inline-block position-relative"><i class="fa-solid fa-circle"></i> Health</li>
+                                    <li class="d-inline-block position-relative"><i class="fa-solid fa-circle"></i> Trust</li>
+                                    <li class="d-inline-block position-relative pr-0"><i class="fa-solid fa-circle"></i> Online</li>
+                                </ul>
+                                <h1>Instant Pharmacy <br> Access For You</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="banner-content-right-con">
+                                <div class="user-box d-flex">
+                                    <div class="d-flex imgz-wrap">
+                                        <img src="assets/images/user1.png" alt="icon" class="ml-0">
+                                        <img src="assets/images/user2.png" alt="icon">
+                                        <img src="assets/images/user3.png" alt="icon">
+                                        <img src="assets/images/user4.png" alt="icon">
+                                    </div>
+                                    <div class="user-text flex-column">
+                                        <span class="d-inline-block counter text-white">4</span>
+                                        <span class="d-inline-block alphabet text-white">k</span>
+                                        <sup class="d-inline-block text-white">+</sup>
+                                        <span class="span-text d-block text-white">Happy clients</span>
+                                    </div>
+                                </div>
+                                <p class="text-white">Order prescription and over-the-counter medicines <br> online with confidence.</p>
+                                <a href="#products" class="text-decoration-none primary_btn d-inline-block">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between imgz-outer-con position-relative">
+                        <figure><img src="https://images.ctfassets.net/pdf29us7flmy/1bCg1fg7vOsGDxYN2mSAPh/1c90033612f7e70e08ade8d2e4798346/Healthcare_pharmacist_looking_for_medication_in_a_pharmacy_-getty19-.jpeg" alt="pharmacy" class="img-fluid"></figure>
+                        <figure><img src="https://bunny-wp-pullzone-3xue3q6yzy.b-cdn.net/wp-content/uploads/2024/10/Pharmacists-Career-Options-Featured.jpg" alt="pharmacist" class="img-fluid"></figure>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="padding-rl float-left w-100">
+        <section class="float-left w-100 benefits-con">
+            <div class="main-container">
+                <div class="benefits-inner-con">
+                    <ul class="d-flex list-unstyled p-0 mb-0 align-items-center justify-content-between flex-wrap">
+                        <li class="d-flex align-items-center wow fadeInLeft">
+                            <figure><img src="assets/images/benefits-icon1.png" alt="icon"></figure>
+                            <div><h6>Free Shipping & Returns</h6><p>For all order over $200</p></div>
+                        </li>
+                        <li class="d-flex align-items-center wow fadeInLeft">
+                            <figure><img src="assets/images/benefits-icon2.png" alt="icon"></figure>
+                            <div><h6>Secure Payment</h6><p>Ensure Secure Payment</p></div>
+                        </li>
+                        <li class="d-flex align-items-center wow fadeInLeft">
+                            <figure><img src="assets/images/benefits-icon3.png" alt="icon"></figure>
+                            <div><h6>Money Back Guarantee</h6><p>Returning Money in 30 days</p></div>
+                        </li>
+                        <li class="d-flex align-items-center wow fadeInLeft">
+                            <figure><img src="assets/images/benefits-icon4.png" alt="icon"></figure>
+                            <div><h6>24/7 Customer Support</h6><p>Friendly Customer Support</p></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT US -->
+    <div class="padding-rl float-left w-100" id="about">
+        <section class="float-left w-100 main-about-con position-relative padding-top padding-bottom">
+            <div class="main-container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="main-abt-content-con">
+                            <div class="heading-title-con">
+                                <span class="special-text d-inline-block wow fadeInLeft">About Us</span>
+                                <h2 class="wow fadeInLeft">Committed to Making <br> Healthcare Accessible</h2>
+                                <p class="wow fadeInLeft">We offer a trusted platform where you can confidently order both prescription and over-the-counter medicines online. Our team is dedicated to safety, reliability, and exceptional customer care — ensuring that you receive the medications you need, when you need them, without hassle.</p>
+                                <p class="wow fadeInLeft">With a focus on convenience and quality, we partner with licensed pharmacies and healthcare professionals. Our mission is to simplify your healthcare journey, one delivery at a time.</p>
+                            </div>
+                            <figure class="wow fadeInLeft"><img src="assets/images/img/Chetty%20street.webp" alt="pharmacy store" class="img-fluid br-30"></figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="main-about-img-con wow fadeInRight">
+                            <figure><img src="assets/images/img/ChatGPT%20Image%20Feb%2011%2C%202026%2C%2002_39_18%20PM.png" alt="team" class="img-fluid br-30"></figure>
+                            <div class="users-details-con wow fadeInRight">
+                                <div class="user-detrail-box">
+                                    <span class="d-inline-block counter">98</span><span class="d-inline-block alphabet">%</span>
+                                    <p>Customer Satisfaction</p>
+                                </div>
+                                <div class="user-detrail-box">
+                                    <span class="d-inline-block counter">10</span><span class="d-inline-block alphabet">M</span><span class="d-inline-block alphabet">+</span>
+                                    <p>Orders Delivered</p>
+                                </div>
+                                <div class="user-detrail-box border-right-0">
+                                    <span class="d-inline-block counter">500</span><span class="d-inline-block alphabet">+</span>
+                                    <p>Pharmacy Partners</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS SECTION – INLINE TABS, UNIFIED "ADD TO CART" -->
+    <div class="padding-rl float-left w-100" id="products">
+        <section class="position-relative padding-top padding-bottom featured-products-con">
+            <div class="container-fluid">
+                <div class="heading-title-con text-center">
+                    <span class="special-text d-inline-block wow fadeInLeft">Our Products</span>
+                    <h2 class="wow fadeInRight mb-0">Browse Our Categories</h2>
+                </div>
+                <!-- inline product tabs -->
+                <div class="product-tabs-inline wow fadeInUp">
+                    <a href="#" class="product-tab-link active" onclick="activateProductTab('all', event)">All</a>
+                    <a href="#" class="product-tab-link" onclick="activateProductTab('allopathic-medicine', event)">Allopathic Medicine</a>
+                    <a href="#" class="product-tab-link" onclick="activateProductTab('ayurvedic-medicine', event)">Ayurvedic Medicine</a>
+                    <a href="#" class="product-tab-link" onclick="activateProductTab('baby-needs', event)">Baby Needs</a>
+                    <a href="#" class="product-tab-link" onclick="activateProductTab('surgical-items', event)">Surgical Items</a>
+                    <a href="#" class="product-tab-link" onclick="activateProductTab('food-items', event)">Food Items</a>
+                </div>
+
+                <div class="tab-content-container wow fadeInLeft">
+                    <!-- ALL PRODUCTS -->
+                    <div id="all" class="product-tab-pane active">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box box1">
+                                        <figure><img src="assets/images/product1.png" alt="product"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Supplement</span>
+                                        <h5>VitalEase Multivitamins</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn d-inline-block">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">25</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box box1">
+                                        <figure><img src="assets/images/img/Ayurvedic/AVP0231_1.webp" alt="allopathic"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Allopathic</span>
+                                        <h5>Pain Relief Tablets</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">25</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box box1">
+                                        <figure><img src="assets/images/img/Baby%20needs/johnsons-baby-care-products-moisturising-cream-bath-baby-powder-cotton-B0J1AP.jpg" alt="baby"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Ayurvedic</span>
+                                        <h5>Ashwagandha Powder</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">30</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box box1">
+                                        <figure><img src="assets/images/img/surgical-items/product8.jpg" alt="surgical"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Baby Care</span>
+                                        <h5>Baby Diapers</h5>
+                                        <div class="rating"><i class="fa-solid fa-star"></i><span>4.7/5</span></div>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">18</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ALLOPATHIC -->
+                    <div id="allopathic-medicine" class="product-tab-pane">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Allopathic%20Medicine/WhatsApp-Image-2024-06-09-at-10.53.45-AM-1024x1024.jpeg" alt="allopathic"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Allopathic</span>
+                                        <h5>Pain Relief Tablets</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">25</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/40287975_1-kerala-ayurveda-amrutharishta-tonic-immunity-booster-relieves-fatigue-for-post-illness-weakness.webp" alt="antibiotic"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Allopathic</span>
+                                        <h5>Antibiotic Capsules</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">45</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/61OiPocXzNL._AC_UF1000,1000_QL80_.jpg" alt="syrup"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Allopathic</span>
+                                        <h5>Antibiotic Syrup</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">32</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/6.jpg" alt="vitamins"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Allopathic</span>
+                                        <h5>Vitamin Tablets</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">28</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AYURVEDIC -->
+                    <div id="ayurvedic-medicine" class="product-tab-pane">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/Dwibhashi_Punarnava_Tablets-01.webp" alt="ashwagandha"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Ayurvedic</span>
+                                        <h5>Ashwagandha Powder</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">30</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/ayurvedic-medicine-for-kidney-health-water-retention-liver-detox-urinary-disorders-punarnavadi-kashayam-6182573.webp" alt="triphala"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Ayurvedic</span>
+                                        <h5>Triphala Churna</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">22</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/AVP0231_1.webp" alt="neem"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Ayurvedic</span>
+                                        <h5>Neem Capsules</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">35</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Ayurvedic/61OiPocXzNL._AC_UF1000,1000_QL80_.jpg" alt="turmeric"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Ayurvedic</span>
+                                        <h5>Turmeric Powder</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">18</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BABY NEEDS -->
+                    <div id="baby-needs" class="product-tab-pane">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Baby%20needs/260999_6-johnsons-baby-baby-lotion.webp" alt="diapers"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Baby Care</span>
+                                        <h5>Baby Diapers</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">18</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Baby%20needs/40044232_1-apollo-pharmacy-baby-best-baby-care-collection-kit-bbb0007.webp" alt="soap"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Baby Care</span>
+                                        <h5>Baby Soap</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">12</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Baby%20needs/cetapil-baby-baby-needs-store-3-cheras-pj-kajang-kl.jpg" alt="powder"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Baby Care</span>
+                                        <h5>Baby Powder</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">15</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/Baby%20needs/johnsons-baby-care-products-moisturising-cream-bath-baby-powder-cotton-B0J1AP.jpg" alt="oil"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Baby Care</span>
+                                        <h5>Baby Oil</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">20</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SURGICAL ITEMS -->
+                    <div id="surgical-items" class="product-tab-pane">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/surgical-items/4_surg-first-aids.jpg" alt="gloves"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Surgical</span>
+                                        <h5>Surgical Gloves</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">8</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/surgical-items/images.jpeg" alt="mask"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Surgical</span>
+                                        <h5>Surgical Mask</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">5</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/surgical-items/product8.jpg" alt="bandages"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Surgical</span>
+                                        <h5>Bandages</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">3</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/surgical-items/surgical-items-500x500.webp" alt="first aid"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Surgical</span>
+                                        <h5>First Aid Kit</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">25</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FOOD ITEMS – FIXED BROKEN PATHS -->
+                    <div id="food-items" class="product-tab-pane">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/pngtree-a-3d-cartoon-girl-character-of-pharmacist-standing-smiling-female-png-image_15806496.png" alt="protein"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Food</span>
+                                        <h5>Protein Powder</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">35</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/food-items/717bpUGt8wL._AC_UF894,1000_QL80_.jpg" alt="energy bars"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Food</span>
+                                        <h5>Energy Bars</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">12</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/food-items/images.jpeg" alt="health drinks"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Food</span>
+                                        <h5>Health Drinks</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">28</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex">
+                                <div class="seller-box w-100">
+                                    <div class="seller_image_box">
+                                        <figure><img src="assets/images/img/food-items/medjool-1.jpg" alt="nutrition"></figure>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <div class="seller_box_content">
+                                        <span class="product-type">Food</span>
+                                        <h5>Nutrition Supplements</h5>
+                                        <div class="price_wrapper d-flex align-items-center justify-content-between">
+                                            <a href="#contact" class="ordinary_btn">Add to cart</a>
+                                            <span class="dollar">$<span class="counter">42</span>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES (How it works) -->
+    <div class="padding-rl float-left w-100" id="services">
+        <section class="float-left w-100 position-relative how-it-works-con br-30">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="work-img-con wow fadeInRight">
+                            <div class="video-section reveal-up">
+                                <video autoplay muted loop playsinline class="pharmacy-video">
+                                    <source src="./assets/images/img/Video/0_Food_Delivery_Delivery_Person_1280x720.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="work-content-con">
+                            <div class="heading-title-con">
+                                <h2 class="wow fadeInLeft mb-0 text-white">Our Services</h2>
+                            </div>
+                            <ul class="list-unstyled p-0 mb-0 position-relative wow fadeInLeft">
+                                <li class="d-flex align-items-center">
+                                    <figure><img src="assets/images/work-icon1.png" alt="icon"></figure>
+                                    <div><h6>Free Home Delivery Available</h6><p>Snap a photo or upload your doctor's prescription securely.</p></div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <figure><img src="assets/images/work-icon3.png" alt="icon"></figure>
+                                    <div><h6>Get It Delivered</h6><p>Receive your order at your doorstep — fast, safe, and hassle-free.</p></div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <figure><img src="assets/images/work-icon2.png" alt="icon"></figure>
+                                    <div><h6>Free Health Checkup</h6></div>
+                                </li>
+                            </ul>
+                            <a href="#products" class="text-decoration-none primary_btn d-inline-block wow fadeInLeft">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BRANCHES (simplified, no duplicate comment) -->
+    <div class="padding-rl float-left w-100" id="branches">
+        <section class="float-left w-100 news-and-articles-con padding-top padding-bottom position-relative">
+            <div class="main-container">
+                <div class="heading-title-con text-center">
+                    <h2 class="wow fadeInRight mb-0">Our Branches</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mx-auto wow fadeInLeft">
+                        <div class="article-box">
+                            <figure><img src="assets/images/img/Chetty%20street.webp" alt="branch" class="img-fluid"></figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mx-auto wow fadeInLeft">
+                        <div class="article-box">
+                            <figure><img src="assets/images/img/Chetty%20street.webp" alt="branch" class="img-fluid"></figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mx-auto wow bounce">
+                        <div class="article-box">
+                            <figure><img src="assets/images/img/unnamed.webp" alt="branch" class="img-fluid"></figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mx-auto wow bounce">
+                        <div class="article-box">
+                            <figure><img src="assets/images/img/unnamed.webp" alt="branch" class="img-fluid"></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CLEAN CONTACT SECTION (with subject field restored) -->
+    <section id="contact">
+        <div class="contact-section">
+            <div class="contact-container">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-subtitle">Fill the form and send via WhatsApp</p>
+                <div class="contact-content">
+                    <!-- FORM -->
+                    <div class="contact-form-container">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <div class="phone-input-group">
+                                    <div class="country-code">
+                                        <input type="text" id="countryCode" class="form-control" value="91" maxlength="3">
+                                    </div>
+                                    <div class="phone-number">
+                                        <input type="tel" id="phone" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- subject field (uncommented) -->
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-message" id="formMessage"></div>
+                            <button type="submit" class="btn-preview"><i class="fas fa-eye"></i> Send Message</button>
+                            <a href="#" class="btn-whatsapp" id="whatsappBtn" target="_blank" style="display: none;">
+                                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                            </a>
+                        </form>
+                    </div>
+                    <!-- DETAILS -->
+                    <div class="contact-details-container">
+                        <div class="details-header">
+                            <i class="fas fa-address-book"></i>
+                            <h3>Contact Details</h3>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><h4>Main Office</h4><p>21 King Street Melbourne, 3000, Australia</p></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div><h4>Phone Number</h4><p>+61 3 8376 6284</p></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div><h4>Email Address</h4><p>Info@sunpharmacy.com</p></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                            <div><h4>Working Hours</h4><p>Mon - Sat: 9:00 am to 6:00 pm<br>Sunday: 10:00 am to 4:00 pm</p></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SMART CIRCULAR MAP (single instance) -->
+                <div class="map-frame">
+                    <div class="title">Sun Pharmacy Network</div>
+                    <svg viewBox="0 0 1200 760">
+                        <path class="route" d="M600 200 C850 260 900 350 850 440 C760 520 640 600 600 600 C560 600 440 520 350 440 C300 350 350 260 600 200 Z" />
+                    </svg>
+                    <div class="network">
+                        <div class="map-node pos-top active" data-map="https://www.google.com/maps?q=Sun+Pharmacy&output=embed">
+                            <div class="shop-img"></div>
+                            <div class="label"><i class="fa-solid fa-store"></i> Head Branch</div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15614.356414487938!2d79.8072184449874!3d11.933657912708311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361005a64b0cf%3A0xc219119e99ee6b85!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789258584!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="map-node pos-right" data-map="https://www.google.com/maps?q=Chennai&output=embed">
+                            <div class="shop-img"></div>
+                            <div class="label"><i class="fa-solid fa-location-dot"></i> Chennai</div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15614.356414487938!2d79.8072232949874!3d11.933657912708311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1106aef6663c2aeb%3A0xc7464d184bc8af11!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789330171!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="map-node pos-bottom" data-map="https://www.google.com/maps?q=Bangalore&output=embed">
+                            <div class="shop-img"></div>
+                            <div class="label"><i class="fa-solid fa-location-dot"></i> Bangalore</div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.633521131396!2d79.80551697482328!3d11.930572788297253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53619e286be055%3A0x6f6b340361e9033c!2sSun%20Pharmacy!5e0!3m2!1sen!2sin!4v1770789210064!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="map-node pos-left" data-map="https://www.google.com/maps?q=Pondicherry&output=embed">
+                            <div class="shop-img"></div>
+                            <div class="label"><i class="fa-solid fa-location-dot"></i> Pondicherry</div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.6258301983185!2d79.79505300521848!3d11.931107036737782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361a75be5b649%3A0x116a0b91139fa93d!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789131089!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- fullscreen overlay -->
+                <div class="map-overlay" id="mapOverlay">
+                    <span class="close-map" onclick="closeMap()">&times;</span>
+                    <iframe id="fullscreenMap" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER with video background -->
+    <div class="padding-rl float-left w-100">
+        <section class="float-left w-100 footer-con position-relative br-30 padding-rl-responsive">
+            <div class="footer-video-background">
+                <video autoplay muted loop playsinline class="footer-bg-video">
+                    <source src="./assets/images/img/Video/5616308_Coll_wavebreak_Animation_1280x720.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="main-container position-relative">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+                        <div class="footer-column">
+                            <div class="footer-logo"><img src="assets/images/img/logo.jpeg" alt="Sun Pharmacy"></div>
+                            <p>Your trusted partner for health and wellness, providing quality medicines and healthcare products with care and convenience.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+                        <div class="footer-column">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#home">Home</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#about">About</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#services">Services</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Products</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#branches">Branches</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+                        <div class="footer-column">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-phone-flip"></i><a href="tel:+61383766284">+61 3 8376 6284</a></li>
+                                <li><i class="fa-solid fa-envelope"></i><a href="mailto:Info@sunpharmacy.com">Info@sunpharmacy.com</a></li>
+                                <li><i class="fa-solid fa-location-dot"></i><a href="https://maps.app.goo.gl/H8B9kcfVpLPDYcH89">21 King Street Melbourne, 3000, Australia</a></li>
+                                <li><i class="fa-solid fa-clock"></i><span class="address">Mon - Sat: 9:00 am to 6:00 pm</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="footer-column">
+                            <h4>Products</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Allopathic Medicine</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Ayurvedic Medicine</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Baby Needs</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Surgical Items</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="#products">Food Items</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <p class="mb-0">Copyright @ 2026 Sun Pharmacy. All Rights Reserved. <a href="https://www.getitmediasolutions.com/">Designed by Getit media</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- WHATSAPP FLOAT BUTTON -->
+    <a href="javascript:void(0);" onclick="openDirectWhatsApp()" class="whatsapp-float" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; width:60px; height:60px; border-radius:50%; text-align:center; line-height:60px; font-size:30px; box-shadow:2px 2px 10px rgba(0,0,0,0.2); z-index:1000;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- PRELOADER -->
+    <div class="loader-mask">
+        <div class="loader"><div></div><div></div></div>
+    </div>
+
+    <!-- JAVASCRIPT (consolidated, clean) -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/back-to-top-button.js"></script>
+    <script src="assets/js/preloader.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/search.js"></script>
+
+    <script>
+        // ----- PRODUCT TABS (with event parameter) -----
+        window.activateProductTab = function(tabId, ev) {
+            if (ev) { ev.preventDefault(); }
+            // scroll to products
+            const prodSec = document.getElementById('products');
+            if (prodSec) window.scrollTo({ top: prodSec.offsetTop - 100, behavior: 'smooth' });
+
+            // update tab links active class
+            document.querySelectorAll('.product-tab-link').forEach(link => link.classList.remove('active'));
+            if (ev && ev.target) ev.target.classList.add('active');
+            else {
+                // fallback: find by href
+                document.querySelectorAll('.product-tab-link').forEach(link => {
+                    if (link.getAttribute('onclick')?.includes(tabId)) link.classList.add('active');
+                });
+            }
+
+            // show pane
+            document.querySelectorAll('.product-tab-pane').forEach(pane => pane.classList.remove('active'));
+            const activePane = document.getElementById(tabId);
+            if (activePane) activePane.classList.add('active');
+        };
+
+        // ----- video reveal -----
+        window.addEventListener('scroll', function() {
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 120) el.classList.add('active');
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+
+        // ----- nav active on scroll -----
+        window.addEventListener('scroll', function() {
+            let current = '';
+            document.querySelectorAll('section[id], div[id]').forEach(section => {
+                if (section.offsetTop < window.scrollY + 150) current = section.getAttribute('id');
+            });
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+
+        // ----- CONTACT FORM -----
+        if (document.getElementById('contactForm')) {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const cc = document.getElementById('countryCode').value.replace(/\D/g,'');
+                const phone = document.getElementById('phone').value.trim();
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !phone || !subject || !message) 
+                    return showMessage('All fields required', 'error');
+                if (!/^\S+@\S+\.\S+$/.test(email)) 
+                    return showMessage('Valid email required', 'error');
+                if (!/^\d{10}$/.test(phone)) 
+                    return showMessage('10‑digit phone required', 'error');
+
+                const pharmacyWA = '+919176808873';  // replace with your number
+                const msg = `*New from Sun Pharmacy*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* +${cc}${phone}%0A*Subject:* ${subject}%0A*Message:* ${message}%0A%0A_${new Date().toLocaleString()}_`;
+                const waLink = `https://wa.me/${pharmacyWA}?text=${msg}`;
+
+                showMessage('Opening WhatsApp...', 'success');
+                const waBtn = document.getElementById('whatsappBtn');
+                waBtn.href = waLink;
+                waBtn.style.display = 'flex';
+                setTimeout(() => window.open(waLink, '_blank'), 800);
+                document.getElementById('contactForm').reset();
+            });
+        }
+
+        function showMessage(text, type) {
+            const msgDiv = document.getElementById('formMessage');
+            if (!msgDiv) return;
+            msgDiv.textContent = text;
+            msgDiv.className = `form-message ${type}`;
+            msgDiv.style.display = 'block';
+            setTimeout(() => msgDiv.style.display = 'none', type==='success'?10000:5000);
+        }
+
+        // ----- direct whatsapp -----
+        window.openDirectWhatsApp = function() {
+            const num = '+919176808873'; // change to your pharmacy WA
+            window.open(`https://wa.me/${num}?text=Hello%20Sun%20Pharmacy%2C%20I%20need%20assistance.`, '_blank');
+        };
+
+        // ----- map rotation & fullscreen (single) -----
+        (function() {
+            const positions = ["pos-top","pos-right","pos-bottom","pos-left"];
+            const nodes = document.querySelectorAll(".map-node");
+            if (nodes.length) {
+                setInterval(() => {
+                    nodes.forEach(node => {
+                        let current = positions.find(p => node.classList.contains(p));
+                        if (!current) return;
+                        let next = positions[(positions.indexOf(current) + 1) % positions.length];
+                        node.classList.remove(...positions, "active");
+                        node.classList.add(next);
+                        if (next === "pos-top") node.classList.add("active");
+                    });
+                }, 3500);
+
+                nodes.forEach(node => {
+                    node.addEventListener("click", () => {
+                        const mapSrc = node.dataset.map;
+                        if (mapSrc) {
+                            document.getElementById("fullscreenMap").src = mapSrc;
+                            document.getElementById("mapOverlay").style.display = "flex";
+                        }
+                    });
+                });
+                window.closeMap = function() {
+                    document.getElementById("mapOverlay").style.display = "none";
+                    document.getElementById("fullscreenMap").src = "";
+                };
+                document.addEventListener("keydown", e => { if (e.key === "Escape") closeMap(); });
+            }
+        })();
+
+        // phone formatting
+        if (document.getElementById('phone')) {
+            document.getElementById('phone').addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g,'').slice(0,10);
+            });
+        }
+        if (document.getElementById('countryCode')) {
+            document.getElementById('countryCode').addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g,'').slice(0,3);
+            });
+        }
+    </script>
+</body>
+</html>

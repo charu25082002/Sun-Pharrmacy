@@ -57,7 +57,7 @@ body {
 :root {
     --primary--color: #fdf485;
     --secondary--color: #ffffff;
-    --accent--color: #5c45bf;
+    --accent--color: #da7d4e;
     --text--color: #4e4e4e;
     --black--color: #000000;
     --text--color2: #b6b6b6;
@@ -92,8 +92,7 @@ h2 {
     font-size: 60px;
     line-height: 66px;
     font-weight: 700;
-    /* color: var(--black--color); */
-    color: #5c45bf;
+    color: var(--black--color);
     letter-spacing: 0.4px;
 }
 
@@ -361,6 +360,7 @@ html {
 .padding-rl {
     padding-right: 40px;
     padding-left: 40px;
+    
 }
 
 body {
@@ -373,25 +373,12 @@ body {
 /* special classes ends here */
 /* Home Page */
 
-.pharmacy-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 44px;
-  font-weight: 800;
-  color: #2e7d32; /* pharmacy green */
-  letter-spacing: 1px;
-}
-
-.pharmacy-highlight {
-  color: #ff9800; /* sun orange */
-}
-
 /* HEADER SECTION */
 .header-con .navbar-light .navbar-nav .nav-link {
-    font-size: 14px;
-    /* color: var(--black--color); */
-    color: var(--pink--color);
-    font-weight: 1000;
-    line-height: 50px;
+    font-size: 18px;
+    color: var(--black--color);
+    /* background-color: white; */
+    font-weight: 800;
     padding: 1px 0 !important;
     position: relative;
 }
@@ -412,7 +399,8 @@ body {
     margin-bottom: 25px;
     z-index: 5;
     padding: 15px 0;
-    background-color: var(--sky--blue--color);
+    /* background-color: var(--sky--blue--color); */
+    background-color: white;
     border-radius: 25px;
 
 }
@@ -460,6 +448,7 @@ body {
     padding: 10px;
     margin: 0;
     background-color: var(--secondary--color);
+    /* background-color: white; */
     border: 0;
     z-index: 2;
     width: 230px;
@@ -475,6 +464,7 @@ body {
 .header-con .navbar-light .navbar-nav .dropdown-menu .dropdown-item {
     padding: 7px 12px;
     border-bottom: 1px solid var(--secondary--color);
+    /* background-color: white; */
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -531,7 +521,7 @@ body {
     line-height: 48px;
     text-align: center;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     padding: 0;
     width: 100%;
     text-decoration: none;
@@ -888,6 +878,7 @@ div.country-selector>div.list>div.item {
 
 .footer-con {
     background-image: url(../images/footer-bg-img.jpg);
+    /* background-color: #da7d4e; */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1526,6 +1517,88 @@ div.country-selector>div.list>div.item {
     color: var(--accent--color);
 }
 
+/* PROMOTION BANNER SECTION */
+.promotion-banner-con .promotion-box {
+    border-radius: 30px;
+    padding: 50px 50px 60px;
+}
+
+.promotion-banner-con .promotion-box.vitamins {
+    background-image: url(../images/promotion-banner1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.promotion-banner-con .promotion-box.baby-care {
+    background-image: url(../images/promotion-banner2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.promotion-banner-con .promotion-box.personal-care {
+    background-image: url(../images/promotion-banner3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.promotion-banner-con .discount-percent {
+    font-size: 60px;
+    line-height: 50px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.promotion-box.vitamins span.discount-percent {
+    color: var(--brown--color);
+}
+
+.promotion-box.vitamins span.smol-text {
+    color: var(--brown--color);
+}
+
+.promotion-box span.smol-text {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 27px;
+    line-height: 28px;
+}
+
+.promotion-box .specialh4 {
+    margin-bottom: 20px;
+}
+
+.promotion-box.baby-care .smol-text {
+    margin-bottom: 6px;
+}
+
+.promotion-box.baby-care .discount-percent {
+    margin-bottom: 25px;
+}
+
+.promotion-box.baby-care .elementary_btn {
+    background-color: var(--pink--color);
+}
+
+.promotion-box.baby-care .elementary_btn:hover {
+    background-color: var(--accent--color);
+}
+
+.promotion-box.personal-care .discount-percent {
+    color: var(--dark--grey--color);
+}
+
+.promotion-box.personal-care span.smol-text {
+    color: var(--dark--grey--color);
+}
+
+.promotion-box.personal-care .elementary_btn {
+    background-color: var(--dark--grey--color);
+}
+
+.promotion-box.personal-care .elementary_btn:hover {
+    background-color: var(--accent--color);
+}
+
 
 /* CLIENT REVIEW SLIDER */
 .client-review-slider {
@@ -1709,10 +1782,11 @@ div.country-selector>div.list>div.item {
     border: 1px solid var(--sky--blue--color);
     background: var(--sky--blue--color);
     transition: all 0.3s ease-in-out;
+    height: 520px;
 }
 
 .seller-box .seller_image_box {
-    min-height: 280px;
+    min-height: 200px;
     display: flex;
     align-items: center;
     position: relative;
@@ -2089,7 +2163,7 @@ div.country-selector>div.list>div.item {
 /* BANNER SECTION */
 .banner-con {
     /* background-image: url(../images/banner-bg-img.jpg); */
-    background-image: url("../images/img/2.jpg");
+    background-color: #f56218;
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 106px;
@@ -2412,7 +2486,6 @@ div.country-selector>div.list>div.item {
 
 .sub-banner-inner-con h1 {
     margin-bottom: 26px;
- 
 }
 
 .sub-banner-inner-con p {
@@ -2420,8 +2493,6 @@ div.country-selector>div.list>div.item {
     line-height: 32px;
     font-weight: 400;
     color: var(--secondary--color);
-    
-     
     margin-bottom: 35px;
 }
 
@@ -2430,11 +2501,9 @@ div.country-selector>div.list>div.item {
 }
 
 .sub-banner-con {
-    /* background-image: url(../images/sub-banner-bg-img.jpg); */
-    background-image: url("../images/img/3.jpg");
+    background-image: url(../images/sub-banner-bg-img.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 700px;
     padding-top: 141px;
     padding-bottom: 147px;
 }
