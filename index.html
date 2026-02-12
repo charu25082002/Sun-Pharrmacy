@@ -1220,6 +1220,138 @@ svg{
   }
 }
 
+/* ===== BRANCH CARDS – SAME HEIGHT & WIDTH, RESPONSIVE ===== */
+.branches-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.branches-row .col-lg-3,
+.branches-row .col-md-6,
+.branches-row .col-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.branch-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid rgba(0,123,255,0.1);
+}
+
+.branch-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,123,255,0.15);
+    border-color: #007bff;
+}
+
+.branch-image {
+    width: 100%;
+    height: 220px;           /* Fixed height – all images equal */
+    overflow: hidden;
+    position: relative;
+}
+
+.branch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* Crop / cover perfectly */
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.branch-card:hover .branch-image img {
+    transform: scale(1.05);
+}
+
+.branch-info {
+    padding: 22px 18px 25px;
+    text-align: left;
+    background: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.branch-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.branch-info p {
+    color: #5e6f8c;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.branch-info p i {
+    color: #007bff;
+    margin-top: 3px;
+    min-width: 16px;
+}
+
+.branch-status {
+    display: inline-block;
+    background: #e6f3ff;
+    color: #007bff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 30px;
+    align-self: flex-start;
+    margin-top: auto;
+    border: 1px solid rgba(0,123,255,0.2);
+}
+
+/* ===== RESPONSIVE TWEAKS ===== */
+@media (max-width: 991px) {
+    .branch-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .branch-image {
+        height: 220px;
+    }
+    .branch-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .branch-image {
+        height: 200px;
+    }
+    .branch-info {
+        padding: 18px 16px 22px;
+    }
+    .branch-info h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Remove any leftover ordering/centering from old code */
+.branches-row .mx-auto {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
     </style>
 </head>
 
@@ -1242,7 +1374,7 @@ svg{
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="#home">
                             <figure class="mb-0">
-                                <img src="assets/images/img/logo.jpeg" alt="Sun Pharmacy Logo">
+                                <img src="assets/images/img/logo.jpeg" alt="Sun Pharrmacy Logo">
                             </figure>
                         </a>
                         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
@@ -1415,7 +1547,7 @@ svg{
                                 <h2 class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.05s">Committed to Caring for Your Health <br>
                                  Since 1983 
                                 </h2>
-                                <p class="text-margin wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.05s">Sun Pharmacy has been a trusted name in healthcare since 1983, serving generations with dedication, integrity, and compassion. Founded by K. Sivakumar, our pharmacy was built on a simple yet powerful mission — to make quality healthcare accessible, affordable, and reliable for everyone.
+                                <p class="text-margin wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.05s">Sun Pharrmacy has been a trusted name in healthcare since 1983, serving generations with dedication, integrity, and compassion. Founded by K. Sivakumar, our pharmacy was built on a simple yet powerful mission — to make quality healthcare accessible, affordable, and reliable for everyone.
 
 
                                 </p>
@@ -2252,7 +2384,7 @@ svg{
     </section> -->
 
     <!-- BRANCHES SECTION -->
-    <div class="padding-rl float-left w-100" id="branches">
+    <!-- <div class="padding-rl float-left w-100" id="branches">
         <section class="float-left w-100 news-and-articles-con padding-top padding-bottom position-relative">
             <div class="main-container">
                 <div class="heading-title-con text-center">
@@ -2302,7 +2434,85 @@ svg{
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+        <!-- ========== OUR BRANCHES SECTION – 4 BRANCHES IN ROW, EQUAL HEIGHT, RESPONSIVE ========== -->
+<div class="padding-rl float-left w-100" id="branches">
+    <section class="float-left w-100 news-and-articles-con padding-top padding-bottom position-relative">
+        <div class="main-container">
+            <div class="heading-title-con text-center">
+                <h2 class="wow fadeInRight mb-0" data-wow-duration="2s" data-wow-delay="0.05s">
+                    Our Branches
+                </h2>
+            </div>
+
+            <!-- ===== 4 BRANCH CARDS – SAME ROW, SAME HEIGHT, SAME WIDTH ===== -->
+            <div class="row branches-row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                
+                <!-- Branch 1 – Main Store (Chetty Street) -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4 d-flex">
+                    <div class="branch-card">
+                        <div class="branch-image">
+                            <img src="assets/images/img/Chetty street.webp" alt="Sun Pharrmacy Main Store" class="img-fluid">
+                        </div>
+                        <div class="branch-info">
+                            <h4>Main Store</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> 109, Chetty St, Heritage Town, Puducherry</p>
+                            <p>  <i class="fa-solid fa-phone-flip"></i>8870010000</p>
+                            <!-- <span class="branch-status">Open now</span> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 2 – Reddiarpalayam -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4 d-flex">
+                    <div class="branch-card">
+                        <div class="branch-image">
+                       
+                            <img src="assets/images/img/unnamed (2).webp" alt="Sun Pharrmacy Reddiarpalayam" class="img-fluid">
+                        </div>
+                        <div class="branch-info">
+                            <h4>Reddiarpalayam</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> 45, Muthumariamman Koil St, Reddiarpalayam</p>
+                           <p>  <i class="fa-solid fa-phone-flip"></i>7397769357</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 3 – Nellitope -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4 d-flex">
+                    <div class="branch-card">
+                        <div class="branch-image">
+                            <img src="assets/images/img/unnamed (1).webp" alt="Sun Pharrmacy Nellitope" class="img-fluid">
+                        </div>
+                        <div class="branch-info">
+                            <h4>Nellitope</h4>
+                            <p><i class="fa-solid fa-location-dot"></i>National Highway 45A, Nellithope, Puducherry, 605005</p>
+                            <p>  <i class="fa-solid fa-phone-flip"></i>7397769358</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 4 – Kottakuppam -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4 d-flex">
+                    <div class="branch-card">
+                        <div class="branch-image">
+                            <img src="assets/images/img/unnamed.webp" alt="Sun Pharrmacy Kottakuppam" class="img-fluid">
+                        </div>
+                        <div class="branch-info">
+                            <h4>Kottakuppam</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> 23, East Coast Rd, Kottakuppam, Tamil Nadu</p>
+                            <p>  <i class="fa-solid fa-phone-flip"></i>7397769359</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /.row -->
+        </div> <!-- /.main-container -->
+    </section>
+
+    
+<!-- ========== END OF OUR BRANCHES ========== -->
         
         <!-- Clean Contact Section -->
 
@@ -2384,7 +2594,7 @@ svg{
                             </div>
                             <div class="detail-content">
                                 <h4>Phone Number</h4>
-                                <p>+61 8870010000</p>
+                                <p>+91 8870010000</p>
                             </div>
                         </div>
                         
@@ -2404,7 +2614,7 @@ svg{
                             </div>
                             <div class="detail-content">
                                 <h4>Working Hours</h4>
-                                <p>Mon - Sat: 9:00 am to 6:00 pm<br>Sunday: 10:00 am to 4:00 pm</p>
+                                <p>Monday to Saturday: 8:30 AM – 10:00 PM<br>Sunday: 8:30 AM – 2:00 PM and 4:00 PM – 9:00 PM</p>
                             </div>
                         </div>
                         
@@ -2417,7 +2627,7 @@ svg{
 <section >
 
                <div class="map-frame">
-  <div class="title">Sun Pharmacy </div>
+  <div class="title">Sun Pharrmacy </div>
 
   <!-- ROUTE -->
   <svg viewBox="0 0 1200 760">
@@ -2433,26 +2643,27 @@ svg{
 
     <div class="map-node pos-top active" data-map="https://www.google.com/maps?q=Sun+Pharmacy&output=embed">
       <div class="shop-img"></div>
-      <div class="label"><i class="fa-solid fa-store"></i> Head Branch</div>
+      <div class="label"><i class="fa-solid fa-store"></i> MainStore </div>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15614.356414487938!2d79.8072184449874!3d11.933657912708311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361005a64b0cf%3A0xc219119e99ee6b85!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789258584!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
     </div>
 
     <div class="map-node pos-right" data-map="https://www.google.com/maps?q=Chennai&output=embed">
       <div class="shop-img"></div>
-      <div class="label"><i class="fa-solid fa-location-dot"></i> Chennai</div>
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15614.356414487938!2d79.8072232949874!3d11.933657912708311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1106aef6663c2aeb%3A0xc7464d184bc8af11!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789330171!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="label"><i class="fa-solid fa-location-dot"></i>Reddiarpalayam</div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.6258301983185!2d79.79505300521852!3d11.931107036737782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361a75be5b649%3A0x116a0b91139fa93d!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770880897017!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="map-node pos-bottom" data-map="https://www.google.com/maps?q=Bangalore&output=embed">
       <div class="shop-img"></div>
-      <div class="label"><i class="fa-solid fa-location-dot"></i> Bangalore</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.633521131396!2d79.80551697482328!3d11.930572788297253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53619e286be055%3A0x6f6b340361e9033c!2sSun%20Pharmacy!5e0!3m2!1sen!2sin!4v1770789210064!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="label"><i class="fa-solid fa-location-dot"></i>  Nellitope</div>
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.6396837279253!2d79.80551697482328!3d11.930144688297647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53619e286be055%3A0x6f6b340361e9033c!2sSun%20Pharmacy!5e0!3m2!1sen!2sin!4v1770881037062!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="map-node pos-left" data-map="https://www.google.com/maps?q=Pondicherry&output=embed">
       <div class="shop-img"></div>
-      <div class="label"><i class="fa-solid fa-location-dot"></i> Pondicherry</div>
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.6258301983185!2d79.79505300521848!3d11.931107036737782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361a75be5b649%3A0x116a0b91139fa93d!2sSun%20Pharrmacy!5e0!3m2!1sen!2sin!4v1770789131089!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="label"><i class="fa-solid fa-location-dot"></i>Kottakuppam</div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31227.02136326707!2d79.80109694500243!3d11.948332749955433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5363b92dbc8543%3A0x7505b21676831b5!2sSunmedicals%20kottakuppam!5e0!3m2!1sen!2sin!4v1770881218606!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
   </div>
@@ -2494,7 +2705,7 @@ svg{
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
                             <div class="footer-column">
                                 <div class="footer-logo">
-                                    <img src="assets/images/img/logo.jpeg" alt="Sun Pharmacy Logo">
+                                    <img src="assets/images/img/logo.jpeg" alt="Sun Pharrmacy Logo">
                                 </div>
                                 <p>Your trusted partner for health and wellness, providing quality medicines and healthcare products with care and convenience.</p>
                             </div>
@@ -2528,12 +2739,12 @@ svg{
                                 <ul class="mb-0">
                                     <li class="text">
                                         <i class="fa-solid fa-phone-flip"></i>
-                                        <a href="tel:+61383766284" class="text-decoration-none">+61 8870010000</a>
+                                        <a href="tel:+61383766284" class="text-decoration-none">+91 8870010000</a>
                                     </li>
                                     <li class="text">
                                         <i class="fa-solid fa-envelope"></i>
                                         <a href="mailto:Info@pharmez.com"
-                                            class="text-decoration-none">sunpharmacy88@gmail.com</a>
+                                            class="text-decoration-none">sunpharrmacy88@gmail.com</a>
                                     </li>
                                     <li class="text">
                                         <i class="fa-solid fa-location-dot"></i>
@@ -2542,7 +2753,8 @@ svg{
                                     </li>
                                     <li class="text">
                                         <i class="fa-solid fa-clock"></i>
-                                        <p class="address mb-0">Mon - Sat: 9:00 am to 6:00 pm</p>
+                                        <p class="address mb-0">Monday to Saturday: 8:30 AM – 10:00 PM</p>
+                                        <p class="address mb-0">Sunday: 8:30 AM – 2:00 PM and 4:00 PM – 9:00 PM</p>
                                     </li>
                                 </ul>
                             </div>
@@ -2569,7 +2781,7 @@ svg{
                     </div>
                 </div>
                 <div class="copyright d-flex flex-column flex-md-row justify-content-between align-items-center padding-rl-responsive">
-                    <p class="mb-0 mb-md-0 text-center text-md-start">Copyright @ 2026 Sun Pharmacy. All Rights Reserved. <a href="https://www.getitmediasolutions.com/">Designed by Getit media</a></p>
+                    <p class="mb-0 mb-md-0 text-center text-md-start">Copyright @ 2026 Sun Pharrmacy. All Rights Reserved. <a href="https://www.getitmediasolutions.com/">Designed by Getit media</a></p>
                     <!-- <div class="text-center text-md-end mt-2 mt-md-0">
                         <img src="assets/images/payment-cards.png" alt="cards" class="img-fluid">
                     </div> -->
@@ -2763,7 +2975,7 @@ svg{
             const fullPhone = countryCode + phone; // e.g., 919876543210
             
             // Create WhatsApp message – URL-encoded
-            const whatsappMessage = `*New Message from Sun Pharmacy Website*%0A%0A` +
+            const whatsappMessage = `*New Message from Sun Pharrmacy Website*%0A%0A` +
                                   `*Customer Details:*%0A` +
                                   `👤 *Name:* ${name}%0A` +
                                   `📧 *Email:* ${email}%0A` +
@@ -2827,7 +3039,7 @@ svg{
         // Direct WhatsApp click for floating button (already glowing)
         function openDirectWhatsApp() {
             const pharmacyNumber = '919176808873'; // same number, without +
-            const whatsappText = `Hello Sun Pharmacy,%0A%0AI would like to contact you for more information.`;
+            const whatsappText = `Hello Sun Pharrmacy,%0A%0AI would like to contact you for more information.`;
             window.open(`https://wa.me/${pharmacyNumber}?text=${whatsappText}`, '_blank');
         }
     </script>
