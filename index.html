@@ -599,7 +599,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-          
             margin-bottom: 60px;
         }
 
@@ -609,14 +608,16 @@
             }
         }
 
-        /* Contact Form Styles */
+        /* Contact Form Styles - FULLY RESPONSIVE */
         .contact-form-container {
             background: rgb(255, 255, 255);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             padding: 30px;
-           
-            width: 500px;
+            width: 100%;               /* was 500px – now fluid */
+            max-width: 600px;           /* prevents excessive stretch on large screens */
+            margin: 0 auto;             /* center within grid cell */
+            box-sizing: border-box;
         }
 
         .form-header {
@@ -660,6 +661,7 @@
             color: #1e293b;
             transition: all 0.3s ease;
             background: #f8fafc;
+            box-sizing: border-box;
         }
 
         .form-control:focus {
@@ -703,11 +705,16 @@
             margin-right: 8px;
         }
 
-        /* Contact Details Styles */
+        /* Contact Details Styles - FULLY RESPONSIVE */
         .contact-details-container {
-      
-  
             padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         .details-header {
@@ -771,6 +778,7 @@
             color: #64748b;
             margin: 0;
             line-height: 1.6;
+            word-break: break-word;
         }
 
         .social-links {
@@ -967,7 +975,7 @@
             .contact-form-container, .contact-details-container { padding: 20px; }
             .form-header h3, .details-header h3 { font-size: 1.3rem; }
             .detail-item { flex-direction: column; align-items: flex-start; }
-            .detail-icon { margin-bottom: 10px; }
+            .detail-icon { margin-bottom: 10px; margin-right: 0; }
             .phone-input-group { flex-direction: column; gap: 10px; }
             .country-code { flex: none; width: 100%; }
         }
@@ -2297,7 +2305,7 @@ svg{
 
     <!-- CLIENT SECTION START HERE -->
     
-    <!-- <section class="sun">
+    <section class="sun">
         <div class="padding-rl float-left w-100">
         <div class="client-review-slider w-100 float-left padding-top padding-bottom position-relative main-box br-30">
             <div class="container wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s">
@@ -2317,7 +2325,8 @@ svg{
                                     <figure class="rating-stars">
                                         <img src="assets/images/rating-stars.png" alt="rating-stars">
                                     </figure>
-                                    <p class="review-text">"Our vision is to become the most trusted and accessible pharmacy service, making healthcare available to everyone, anytime, anywhere through innovative digital solutions."
+                               
+                                    <p class="review-text">" We at Sun Pharrmacy strongly believe in maintaining High Ethical standard of our service to the Humanity."
                                     </p>
                                 </div>
                             </div>
@@ -2326,45 +2335,21 @@ svg{
                                     <figure class="rating-stars">
                                         <img src="assets/images/rating-stars.png" alt="rating-stars">
                                     </figure>
-                                    <p class="review-text">"Our mission is to provide reliable, affordable, and timely access to quality medicines and healthcare products while ensuring exceptional customer service and care."</p>
+                                    
+                                    <p class="review-text">"To help 1 million Health seeker save time by Delivering High Quality Medicine."</p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
+                            <!-- <div class="carousel-item">
                                 <div class="client-review-box">
                                     <figure class="rating-stars">
                                         <img src="assets/images/rating-stars.png" alt="rating-stars">
                                     </figure>
                                     <p class="review-text">"We strive to bridge the gap between patients and pharmacies through technology, ensuring every individual receives the right medication at the right time with complete safety and convenience."</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <ul class="carousel-indicators">
-                            <li data-target="#home1_testimonial_slider" data-slide-to="0" class="active">
-                                <figure class="mb-0">
-                                    <img src="assets/images/client-img1.jpg" alt="image" class="img-fluid">
-                                </figure>
-                                <div class="name_wrapper">
-                                    <p class="client-name">Our Vision</p>
-                                </div>
-                            </li>
-                            <li data-target="#home1_testimonial_slider" data-slide-to="1">
-                                <figure class="mb-0">
-                                    <img src="assets/images/client-img2.jpg" alt="image" class="img-fluid">
-                                </figure>
-                                <div class="name_wrapper">
-                                    <p class="client-name">Our Mission</p>
-                                </div>
-                            </li>
-                            <li data-target="#home1_testimonial_slider" data-slide-to="2">
-                                <figure class="mb-0">
-                                    <img src="assets/images/client-img3.jpg" alt="image" class="img-fluid">
-                                </figure>
-                                <div class="name_wrapper">
-                                    <p class="client-name">Our Promise</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="pagination-outer">
+                        
+                        <!-- <div class="pagination-outer">
                             <a class="carousel-control-prev" href="#home1_testimonial_slider" role="button"
                                 data-slide="prev">
                                 <i class="prev-arrow fa-solid fa-arrow-left"></i>
@@ -2375,13 +2360,13 @@ svg{
                                 <i class="next-arrow fa-solid fa-arrow-right"></i>
                                 <span class="sr-only">Next</span>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </section> -->
+    </section>
 
     <!-- BRANCHES SECTION -->
     <!-- <div class="padding-rl float-left w-100" id="branches">
@@ -2514,8 +2499,7 @@ svg{
     
 <!-- ========== END OF OUR BRANCHES ========== -->
         
-        <!-- Clean Contact Section -->
-
+        <!-- Clean Contact Section (FULLY RESPONSIVE) -->
         <section style="background-color: #128C7E;">
         <div class="contact-section" id="contact" >
             <div class="contact-container">
@@ -2523,7 +2507,7 @@ svg{
                 <p class="contact-subtitle">Fill the form and send via WhatsApp</p>
                 
                 <div class="contact-content">
-                    <!-- Contact Form -->
+                    <!-- Contact Form (now fully responsive) -->
                     <div class="contact-form-container">
                         
                         <form id="contactForm">
@@ -2571,8 +2555,8 @@ svg{
                         </form>
                     </div>
                     
-                    <!-- Contact Details -->
-                    <div class="contact-details-containers">
+                    <!-- Contact Details (class corrected to contact-details-container) -->
+                    <div class="contact-details-container">
                         <div class="details-header">
                             <i class="fas fa-address-book"></i>
                             <h3>Contact Details</h3>
@@ -3064,15 +3048,20 @@ setInterval(()=>{
   });
 },3500);
 
-/* OPEN FULLSCREEN */
+/* OPEN IN GOOGLE MAPS ON CLICK (instead of fullscreen overlay) */
 nodes.forEach(node=>{
-  node.addEventListener("click",()=>{
-    document.getElementById("fullscreenMap").src = node.dataset.map;
-    document.getElementById("mapOverlay").style.display="flex";
+  node.addEventListener("click", ()=>{
+    let mapUrl = node.dataset.map; // e.g. "https://www.google.com/maps?q=Sun+Pharmacy&output=embed"
+    // Remove &output=embed to get a clean Google Maps link
+    if (mapUrl.includes('&output=embed')) {
+      mapUrl = mapUrl.replace('&output=embed', '');
+    }
+    // Open in new tab
+    window.open(mapUrl, '_blank');
   });
 });
 
-/* CLOSE */
+/* CLOSE (kept for overlay but overlay is never displayed now) */
 function closeMap(){
   document.getElementById("mapOverlay").style.display="none";
   document.getElementById("fullscreenMap").src="";

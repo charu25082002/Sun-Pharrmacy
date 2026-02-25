@@ -562,6 +562,7 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+
 .header-contact .last_list a img {
     filter: brightness(0);
     transition: all 0.3s ease-in-out;
@@ -1604,6 +1605,7 @@ div.country-selector>div.list>div.item {
 .client-review-slider {
     background-color: var(--accent--color);
     overflow: hidden;
+    margin-top: 100px;
 }
 
 .client-review-slider * {
@@ -1749,13 +1751,13 @@ div.country-selector>div.list>div.item {
 .client-review-slider .pagination-outer .carousel-control-prev i,
 .client-review-slider .pagination-outer .carousel-control-next i {
     font-size: 16px;
-    color: var(--secondary--color);
+    /* color: var(--secondary--color); */
     transition: all 0.6s ease-in-out;
 }
 
 .client-review-slider .pagination-outer .carousel-control-prev:hover i,
 .client-review-slider .pagination-outer .carousel-control-next:hover i {
-    color: var(--primary--color);
+    /* color: var(--primary--color); */
 }
 
 .client-review-slider .left-quote {
